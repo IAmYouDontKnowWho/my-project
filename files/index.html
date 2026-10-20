@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wangu Farms — Preserving Nature. Empowering Farmers.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#16321F;
+    --canopy:#2F5233;
+    --ochre:#C68A2E;
+    --clay:#9C4A26;
+    --paper:#F5F0E4;
+    --ivory:#FBF8F2;
+    --ink:#20281D;
+    --ink-soft:#4A5546;
+    --line:rgba(22,50,31,0.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--ivory);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;object-fit:cover;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;color:var(--forest);line-height:1.08;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:15px;
+    color:var(--clay);
+    margin-bottom:10px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 28px;
+    font-size:14px;font-weight:600;
+    border:1.5px solid var(--forest);
+    letter-spacing:0.01em;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .btn-solid{background:var(--forest);color:var(--ivory);}
+  .btn-solid:hover{background:var(--canopy);}
+  .btn-outline{background:transparent;color:var(--forest);}
+  .btn-outline:hover{background:var(--forest);color:var(--ivory);}
+  .btn-light{border-color:var(--ivory);color:var(--ivory);}
+  .btn-light:hover{background:var(--ivory);color:var(--forest);}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--ivory);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1160px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:20px;color:var(--forest);}
+  .brand .mark{width:34px;height:34px;border-radius:50%;background:var(--canopy);display:flex;align-items:center;justify-content:center;color:var(--ivory);font-size:15px;}
+   .nav ul{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    list-style:none;
+    margin:0;
+    padding:0;
+    font-size:14px;
+    font-weight:500;
+  }
+   .nav ul li{display:block;margin:0;padding:0;}
+   .nav ul a{
+    display:inline-block;
+    padding:4px 0;
+    border-bottom:1.5px solid transparent;
+    white-space:nowrap;
+  }
+   .nav ul a:hover{border-color:var(--ochre);}
+  .nav-cta{display:none;}
+  @media(min-width:860px){.nav-cta{display:block;}}
+  .navlinks{display:none;}
+  @media(min-width:860px){
+    .navlinks{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:1;
+      margin:0 32px;
+    }
+  }
+
+  /* Hero */
+  .hero{background:var(--paper);padding:64px 0 0;overflow:hidden;}
+  .hero{position:relative;}
+  .hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0;}
+  .hero-bg-track{display:flex;width:400%;height:100%;animation:heroSlide 15s ease-in-out infinite;}
+  .hero-bg-track img{flex:0 0 25.0%;width:25.0%;height:100%;}
+  .hero > .wrap{position:relative;z-index:1;}
+  @keyframes heroSlide{
+    0.00%,26.67%{transform:translateX(0.0000%);}
+    33.33%,60.00%{transform:translateX(-25.0000%);}
+    66.67%,93.33%{transform:translateX(-50.0000%);}
+    100%{transform:translateX(-75.0000%);}
+  }
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.05fr 0.95fr;gap:56px;}}
+  .hero h1{font-size:clamp(38px,5.4vw,60px);letter-spacing:-0.01em;}
+  .hero p.lead{margin-top:20px;font-size:17px;color:var(--ink-soft);max-width:460px;}
+  .hero-actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-collage{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:150px 150px;gap:12px;}
+  .hero-collage img{width:100%;height:100%;}
+  .hero-collage .tall{grid-row:span 2;height:100%;}
+  .strip{
+    margin-top:56px;border-top:1px solid var(--line);
+    padding:20px 0;
+    display:flex;gap:0;overflow-x:auto;
+  }
+  .strip span{
+    flex:0 0 auto;padding:0 32px;font-size:13px;color:var(--ink-soft);
+    border-right:1px solid var(--line);white-space:nowrap;
+  }
+  .strip span:first-child{padding-left:0;}
+  .strip strong{color:var(--forest);font-weight:600;}
+  .hero h1,.hero .eyebrow{color:var(--ivory);}
+  .hero p.lead{color:rgba(251,248,242,0.88);}
+  .hero .btn-solid{background:var(--ivory);color:var(--forest);}
+  .hero .btn-outline{border-color:var(--ivory);color:var(--ivory);}
+  .hero .btn-outline:hover{background:var(--ivory);color:var(--forest);}
+  .hero .strip,.hero .strip span{color:rgba(251,248,242,0.9);}
+  .hero .strip strong{color:var(--ivory);}
+  .hero-collage{display:none;}
+  .hero-grid{grid-template-columns:1fr !important;}
+  .hero .strip{border-top-color:rgba(251,248,242,0.3);}
+  .hero .strip span{border-right-color:rgba(251,248,242,0.3);}
+  @media(max-width:899px){.hero-bg::after{content:"";position:absolute;inset:0;background:rgba(10,40,20,0.6);}}
+
+  /* Section basics */
+  section{padding:88px 0;}
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head h2{font-size:clamp(28px,3.6vw,40px);}
+  .split{display:grid;grid-template-columns:1fr;gap:48px;}
+  @media(min-width:900px){.split{grid-template-columns:1fr 1fr;align-items:center;}}
+  .split img{width:100%;height:340px;}
+
+  .video-ph{position:relative;aspect-ratio:16/9;background:var(--canopy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--ivory);text-align:center;}
+  .video-ph .play{width:84px;height:84px;border-radius:50%;border:2px solid var(--ivory);display:flex;align-items:center;justify-content:center;}
+  .video-ph .play svg{width:34px;height:34px;fill:var(--ivory);margin-left:4px;}
+  .video-ph p{font-size:15px;color:rgba(251,248,242,0.8);}
+  .video-ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+
+  /* Pillars — rule based, not cards */
+  .pillars{background:var(--forest);color:var(--ivory);padding:72px 0 64px;}
+  .pillars h2, .pillars .eyebrow{color:var(--ivory);}
+  .pillars .eyebrow{color:#D8C48F;}
+  .pillar-list{display:grid;grid-template-columns:1fr;border-top:1px solid rgba(255,255,255,0.18);}
+  @media(min-width:760px){.pillar-list{grid-template-columns:repeat(3,1fr);}}
+  .pillar{
+    padding:32px 28px 32px 0;
+    border-right:1px solid rgba(255,255,255,0.18);
+    border-bottom:1px solid rgba(255,255,255,0.18);
+  }
+  @media(min-width:760px){.pillar:nth-child(3){border-right:none;}}
+  .pillar:last-child{border-right:none;}
+  .pillar .num{font-family:'Fraunces',serif;font-style:italic;color:#D8C48F;font-size:15px;margin-bottom:14px;display:block;}
+  .pillar h4{color:var(--ivory);font-size:18px;margin-bottom:10px;}
+  .pillar p{font-size:14.5px;color:rgba(251,248,242,0.78);}
+
+  /* Products */
+  .prod-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+  @media(min-width:760px){.prod-grid{grid-template-columns:repeat(3,1fr);}}
+  .prod-tile{position:relative;height:400px;overflow:hidden;background:var(--canopy);}
+  .prod-tile img{width:100%;height:100%;transition:transform .5s ease;}
+  .prod-tile:hover img{transform:scale(1.06);}
+  .prod-tile .label{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:24px;
+    background:linear-gradient(to top, rgba(22,50,31,0.88), rgba(22,50,31,0));
+    color:var(--ivory);
+  }
+  .prod-tile .label h3{color:var(--ivory);font-size:22px;margin-bottom:4px;}
+  .prod-tile .label span{font-size:13px;color:#D8C48F;}
+
+  /* Partner band */
+  .partner{background:var(--paper);}
+  .partner .split{align-items:start;}
+  .partner-body p{color:var(--ink-soft);margin-top:18px;}
+  .partner-list{margin-top:28px;display:grid;gap:0;border-top:1px solid var(--line);}
+  .partner-list li{
+    list-style:none;padding:16px 0;
+    border-bottom:1px solid var(--line);
+    display:flex;gap:16px;font-size:15px;
+  }
+  .partner-list b{font-family:'Fraunces',serif;font-weight:500;color:var(--forest);min-width:170px;}
+
+  /* Timeline (sequence — numbering justified) */
+  .timeline{border-top:1px solid var(--line);margin-top:48px;}
+  .t-row{
+    display:grid;grid-template-columns:60px 1fr;gap:24px;
+    padding:32px 0;border-bottom:1px solid var(--line);
+  }
+  @media(min-width:760px){.t-row{grid-template-columns:60px 220px 1fr;}}
+  .t-row .t-num{font-family:'Fraunces',serif;font-style:italic;color:var(--ochre);font-size:22px;}
+  .t-row h4{font-size:19px;margin-bottom:6px;}
+  .t-row p{color:var(--ink-soft);font-size:14.5px;max-width:520px;}
+  .t-row img{width:100%;height:100px;}
+  @media(min-width:760px){.t-row img{height:100%;}}
+
+  /* Retail */
+  .retail{background:var(--ivory);}
+  .prod-grid-sm{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  @media(min-width:700px){.prod-grid-sm{grid-template-columns:repeat(4,1fr);}}
+  .card{border:1px solid var(--line);}
+  .card .thumb{height:180px;overflow:hidden;}
+  .card .thumb img{width:100%;height:100%;}
+  .card .body{padding:18px;}
+  .card .body h4{font-size:15.5px;margin-bottom:6px;}
+  .price{font-size:14px;}
+  .price .was{color:#9a978c;text-decoration:line-through;margin-right:6px;}
+  .price .now{color:var(--clay);font-weight:600;}
+
+  /* CTA band */
+  /* Banner (partner + investors) */
+  .partner{padding:0;background:var(--ivory);}
+  .ban{background:var(--canopy) center/cover no-repeat;color:var(--ivory);padding:80px 0;}
+  .ban .wrap > div{max-width:560px;}
+  .ban h2{color:var(--ivory);font-size:clamp(28px,3.8vw,44px);}
+  .ban .eyebrow{color:var(--ochre);}
+  .ban p{margin-top:16px;color:rgba(251,248,242,0.88);}
+  .ban-actions{margin-top:28px;display:flex;gap:22px;align-items:center;flex-wrap:wrap;}
+  .btn-gold{background:var(--ochre);color:var(--forest);}
+  .btn-gold:hover{background:var(--ivory);}
+  .ban-link{color:var(--ivory);font-weight:600;font-size:14px;border-bottom:2px solid var(--ochre);padding-bottom:3px;}
+  @media(max-width:899px){.ban{position:relative;}.ban::before{content:"";position:absolute;inset:0;background:rgba(10,40,20,0.6);}.ban .wrap{position:relative;}}
+  .feat-row{display:grid;grid-template-columns:1fr;gap:28px;padding:40px 0;}
+  @media(min-width:760px){.feat-row.c4{grid-template-columns:repeat(4,1fr);}.feat-row.c3{grid-template-columns:repeat(3,1fr);}}
+  .feat{display:flex;gap:16px;align-items:flex-start;}
+  .feat .ico{flex:0 0 52px;width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ochre);background:var(--ivory);display:flex;align-items:center;justify-content:center;}
+  .feat .ico svg{width:24px;height:24px;fill:none;stroke:var(--forest);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .feat h4{font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:var(--forest);}
+  .feat p{font-size:14px;color:var(--ink-soft);margin-top:4px;line-height:1.5;}
+  .inv-split{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;padding:64px 0 8px;}
+  @media(min-width:900px){.inv-split{grid-template-columns:1fr 1fr;}}
+  .inv-split img{width:100%;height:320px;}
+  .inv-split p{margin-top:16px;color:var(--ink-soft);}
+  .steps{margin-top:24px;display:grid;gap:20px;list-style:none;}
+  .steps li{display:flex;gap:16px;align-items:flex-start;}
+  .steps .n{flex:0 0 40px;height:40px;border-radius:50%;background:var(--forest);color:var(--ochre);font-family:'Fraunces',serif;font-weight:600;display:flex;align-items:center;justify-content:center;}
+  .steps b{font-family:'Fraunces',serif;font-weight:600;color:var(--forest);display:block;}
+  .steps span.d{font-size:14px;color:var(--ink-soft);}
+  .build{margin-top:56px;border-top:1px solid var(--line);padding:32px 0 0;display:flex;flex-direction:column;gap:20px;}
+  @media(min-width:900px){.build{flex-direction:row;align-items:center;justify-content:space-between;gap:40px;}}
+  .build h3{font-size:28px;white-space:nowrap;}
+  .build p{color:var(--ink-soft);max-width:560px;}
+  .cta-band{background:var(--canopy);color:var(--ivory);text-align:left;}
+  .cta-band .wrap{display:flex;flex-direction:column;gap:24px;align-items:flex-start;}
+  @media(min-width:760px){.cta-band .wrap{flex-direction:row;justify-content:space-between;align-items:center;}}
+  .cta-band h2{color:var(--ivory);font-size:clamp(26px,3.4vw,36px);max-width:520px;}
+
+  /* Footer */
+  footer{background:var(--forest);color:rgba(251,248,242,0.82);padding:64px 0 28px;}
+  .foot-grid{display:grid;grid-template-columns:1fr;gap:40px;}
+  @media(min-width:760px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr;}}
+  footer h5{color:var(--ivory);font-size:13px;letter-spacing:0.04em;text-transform:uppercase;font-weight:600;margin-bottom:16px;font-family:'Inter',sans-serif;}
+  footer .brand{color:var(--ivory);}
+  footer ul{list-style:none;font-size:14px;}
+  footer li{margin-bottom:10px;}
+  footer a:hover{color:var(--ochre);}
+  .social{display:flex;gap:12px;margin-top:20px;}
+  .social a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.28);display:flex;align-items:center;justify-content:center;color:var(--ivory);transition:background .2s ease,border-color .2s ease;}
+  .social a:hover{background:var(--ochre);border-color:var(--ochre);color:var(--ivory);}
+  .social svg{width:18px;height:18px;fill:currentColor;}
+  .foot-bottom{
+    margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.14);
+    font-size:13px;color:rgba(251,248,242,0.55);
+    display:flex;flex-direction:column;gap:8px;
+  }
+  @media(min-width:760px){.foot-bottom{flex-direction:row;justify-content:space-between;}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .prod-tile:hover img{transform:none;}
+    .hero-bg-track{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#top"><img src="images/logo.png" alt="Wangu's" style="height:44px;width:auto;"></a>
+    <ul class="navlinks">
+      <li><a href="#story">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#sustainability">Sustainability</a></li>
+      <li><a href="#investors">Investors</a></li>
+      <li><a href="#retail">Shop</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-solid nav-cta" href="#contact">Contact us</a>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<section class="hero" style="padding-top:64px;">
+  <div class="hero-bg" aria-hidden="true"><div class="hero-bg-track"><img src="images/hero-1.jpg" alt=""><img src="images/hero-2.jpg" alt=""><img src="images/hero-3.jpg" alt=""><img src="images/hero-1.jpg" alt=""></div></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Sierra Leone · Est. agro-processing and export</p>
+        <h1>Preserving Nature. Empowering Farmers.</h1>
+        <p class="lead">Premium dehydrated and frozen agricultural products, grown at the forest edge and processed with care to keep their natural taste, freshness, and quality.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#products">View our products</a>
+          <a class="btn btn-outline" href="#contact">Contact us</a>
+        </div>
+      </div>
+      <div class="hero-collage">
+        <img class="tall" src="https://wangufarms.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-06-at-14.46.03-1024x768.jpeg" alt="Wangu Farms produce, freshly harvested">
+        <img src="https://wangufarms.com/wp-content/uploads/2026/04/s-l960-4.webp" alt="Dried hibiscus calyx">
+        <img src="https://wangufarms.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-06-at-14.46.04-1024x768.jpeg" alt="Farm produce being sorted">
+      </div>
+    </div>
+    <div class="strip">
+      <span><strong>500+</strong> passionfruit farmers</span>
+      <span><strong>2,000+</strong> vegetable and citrus farmers</span>
+      <span><strong>Forest-Friendly™</strong> sourcing model</span>
+      <span>Freetown, Sierra Leone</span>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <img src="https://wangufarms.com/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-18-at-16.27.14.jpeg" alt="Farmer working at the forest edge">
+      </div>
+      <div>
+        <p class="eyebrow">From farm to global markets</p>
+        <h2>Forest-friendly. Farmer-first. Flavor-forward.</h2>
+        <p style="margin-top:18px;color:var(--ink-soft);">We transform locally sourced crops into premium frozen and dried products for industries worldwide. Through careful selection, modern processing techniques, and strict quality control, we preserve the natural taste, nutrients, and freshness of every product to meet international standards.</p>
+        <p style="margin-top:14px;color:var(--ink-soft);">Wangu Farms was founded with a vision to transform locally grown crops into high-quality products for global markets — promoting sustainable agriculture, empowering local farmers, and meeting international standards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="video" style="background:var(--paper);">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Watch our story</p>
+      <h2>The Wangu's farm story</h2>
+    </div>
+ 
+    
+    <video controls style="width:100%;aspect-ratio:16/9;background:#000;">
+      <source src="videos/wangus-farm-story.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:0;">
+      <p class="eyebrow">We grow more than fruit — we grow communities</p>
+      <h2 style="max-width:640px;">Why our sourcing model matters</h2>
+    </div>
+
+    <div class="pillar-list" style="margin-top:40px;">
+      <div class="pillar">
+        <span class="num">Forest-Friendly™</span>
+        <h4>Protecting the forest edge</h4>
+        <p>We cultivate at forest edges, creating a natural barrier that protects Sierra Leone's forests from deforestation.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">500+ farmers</span>
+        <h4>Long-term farmer partnerships</h4>
+        <p>Our passionfruit farmers receive fair wages, training, and long-term partnerships built to last.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">2,000+ farmers</span>
+        <h4>Stronger local communities</h4>
+        <p>We support a thriving agricultural community, sourcing the finest produce while improving livelihoods.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The result of this process</p>
+      <h2>Our products</h2>
+    </div>
+    <div class="prod-grid">
+      <a class="prod-tile" href="#retail">
+        <img src="images/tile-dehydrated.jpg" alt="Dehydrated products">
+        <div class="label"><h3>Dehydrated</h3><span>Hibiscus, soursop leaves, citrus, guava leaves</span></div>
+      </a>
+      <a class="prod-tile" href="#retail">
+        <img src="images/tile-frozen.jpg" alt="Frozen products">
+        <div class="label"><h3>Frozen</h3><span>Amaranth, sorrel, jute and cassava leaves</span></div>
+      </a>
+      <a class="prod-tile" href="#retail">
+        <img src="images/tile-retail.jpg" alt="Retail products">
+        <div class="label"><h3>Retail</h3><span>Shelf-ready packaging for direct sale</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="retail" class="retail">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Retail products</p>
+      <h2>Our retail favourites</h2>
+    </div>
+    <div class="prod-grid-sm">
+      <div class="card">
+        <div class="thumb"><img src="images/card-hibiscus.jpg" alt="Dehydrated Hibiscus (Calyx)"></div>
+        <div class="body"><h4>Dehydrated Hibiscus (Calyx)</h4><p class="price"><span class="was">$10.95</span><span class="now">$10.00</span></p></div>
+      </div>
+      <div class="card">
+        <div class="thumb"><img src="images/card-citrus.jpg" alt="Citrus Slices"></div>
+        <div class="body"><h4>Citrus Slices</h4><p class="price"><span class="was">$10.95</span><span class="now">$10.00</span></p></div>
+      </div>
+      <div class="card">
+        <div class="thumb"><img src="images/card-soursop.jpg" alt="Soursop Leaves"></div>
+        <div class="body"><h4>Soursop Leaves</h4><p class="price"><span class="was">$10.95</span><span class="now">$10.00</span></p></div>
+      </div>
+      <div class="card">
+        <div class="thumb"><img src="images/card-cassava.jpg" alt="Frozen Cassava Leaves"></div>
+        <div class="body"><h4>Frozen Cassava Leaves</h4><p class="price"><span class="was">$7.60</span><span class="now">$7.50</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready to source from Wangu Farms?</h2>
+    <a class="btn btn-light" href="#contact">Get in touch</a>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0;">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2>Let's talk supply</h2>
+        <p style="margin-top:16px;color:var(--ink-soft);max-width:420px;">Reach out to discuss product specifications, samples, pricing, private-label options, and bulk supply requirements.</p>
+        <ul class="partner-list" style="margin-top:24px;">
+          <li><b>Phone</b> +1 240 460 3002</li>
+          <li><b>Email</b> info@wangufarms.com</li>
+          <li><b>Location</b> Freetown, Sierra Leone</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://wangufarms.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-06-at-14.46.06-1-768x1024.jpeg" alt="Wangu Farms produce ready for export" style="height:420px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="partner">
+  <div class="ban" style="background-image:url(images/hero-2.jpg);">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Trusted agro export partner</p>
+        <h2>Looking for a trusted agro-export partner?</h2>
+        <p>Wangu's Limited supplies carefully processed frozen and dehydrated agricultural products from Sierra Leone. We work directly with smallholder farmers and provide traceable, responsibly sourced products for retail, food-service, manufacturing, and distribution partners.</p>
+        <p>Contact us to discuss product specifications, samples, pricing, private-label options, and bulk supply requirements.</p>
+        <div class="ban-actions"><a class="btn btn-gold" href="#contact">Contact us</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="feat-row c4">
+      <div class="feat"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-9 0 12-4 16-9 16z"/><path d="M4 20c2-5 5-8 9-10"/></svg></span><div><h4>Forest-Friendly™</h4><p>Grown at the edges of Sierra Leone's forests, actively preventing deforestation.</p></div></div>
+      <div class="feat"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></span><div><h4>Bulk &amp; private label</h4><p>Flexible packaging options for manufacturers and brands.</p></div></div>
+      <div class="feat"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><div><h4>Reliable export</h4><p>Streamlined logistics for uninterrupted supply.</p></div></div>
+      <div class="feat"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M8 11l2 2 4-4"/></svg></span><div><h4>Full traceability</h4><p>Farm-level sourcing records, tracked through every stage.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="sustainability" style="background:var(--paper);">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">From responsible sourcing to finished product</p>
+      <h2>How we process, from field to dispatch</h2>
+      <p style="margin-top:16px;color:var(--ink-soft);">Once crops are responsibly sourced, they move through a controlled process designed to protect quality at every stage. At our processing facility, incoming crops are received, inspected, sorted, cleaned, and processed under controlled conditions. Products are dried or frozen, packaged, batch-coded, and recorded to support quality control and traceability from farmer delivery through final dispatch.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-row">
+        <span class="t-num">01</span>
+        <div><h4>Farm sourcing</h4><p>Products are sourced from trusted local farming communities.</p></div>
+        <img src="https://wangufarms.com/wp-content/uploads/2026/05/17566154505847187936724145826544.jpg" alt="Farm sourcing">
+      </div>
+      <div class="t-row">
+        <span class="t-num">02</span>
+        <div><h4>Collection and transport</h4><p>Harvested products are carefully collected and transported under controlled conditions.</p></div>
+        <img src="https://wangufarms.com/wp-content/uploads/2026/04/hero-section.png" alt="Collection and transport">
+      </div>
+      <div class="t-row">
+        <span class="t-num">03</span>
+        <div><h4>Processing facility</h4><p>Crops are inspected, sorted, cleaned, and processed under controlled conditions, then dried or flash-frozen and batch-coded for traceability.</p></div>
+        <img src="https://wangufarms.com/wp-content/uploads/2026/04/hero.png" alt="Processing facility">
+      </div>
+      <div class="t-row">
+        <span class="t-num">04</span>
+        <div><h4>Packaging and export</h4><p>Final products are packaged securely and prepared for international markets.</p></div>
+        <img src="https://wangufarms.com/wp-content/uploads/2026/04/HE1.png" alt="Packaging and export">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section id="investors" style="padding:0;">
+  <div class="ban" style="background-image:url(images/hero-3.jpg);">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">For investors</p>
+        <h2>Invest in the Future of Forest-Friendly, Ethical Food</h2>
+        <p>Partner with Wangu's to connect Sierra Leone's agricultural communities with growing global demand.</p>
+        <div class="ban-actions"><a class="btn btn-gold" href="#contact">Explore Investment Opportunities</a><a class="ban-link" href="#contact">Contact Our Team →</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="inv-split">
+      <div>
+        <h2>A Growing Opportunity</h2>
+        <p>Global demand for traceable, sustainable and ethically sourced ingredients is stronger than ever. Wangu's offers investors a chance to be part of a growing market while creating lasting impact for Sierra Leone's farming communities and natural resources.</p>
+      </div>
+      <img src="https://wangufarms.com/wp-content/uploads/2026/04/hero.png" alt="Wangu's processing facility">
+    </div>
+    <div class="feat-row c3">
+      <div class="feat"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-9 0 12-4 16-9 16z"/><path d="M4 20c2-5 5-8 9-10"/></svg></span><div><h4>Forest-Friendly Sourcing</h4><p>We work with nature, protecting forests and biodiversity.</p></div></div>
+      <div class="feat"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.8 0 4.5 1.9 4.5 5"/></svg></span><div><h4>Farmer Empowerment</h4><p>We support local farmers with fair opportunities and long-term growth.</p></div></div>
+      <div class="feat"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><div><h4>Export-Ready Products</h4><p>High-quality, safe and consistent products for global markets.</p></div></div>
+    </div>
+    <div class="inv-split" style="padding-top:24px;">
+      <div>
+        <h2>Agriculture from Sierra Leone to the World</h2>
+        <ul class="steps">
+          <li><span class="n">1</span><div><b>Local Farmer Partnerships</b><span class="d">Directly sourcing from farming communities across Sierra Leone.</span></div></li>
+          <li><span class="n">2</span><div><b>Sustainable Agriculture</b><span class="d">Regenerative practices that protect the land and future generations.</span></div></li>
+          <li><span class="n">3</span><div><b>Export Market Access</b><span class="d">Connecting quality products to international buyers and distributors.</span></div></li>
+        </ul>
+      </div>
+      <img src="https://wangufarms.com/wp-content/uploads/2026/04/hero-section.png" alt="Collection and transport">
+    </div>
+    <div class="build">
+      <h3>Build With Us</h3>
+      <p>We are seeking strategic partners and investors who share our vision for sustainable agriculture, fair trade and long-term value. Together, we can scale impact — for people, for communities and for the planet.</p>
+      <a class="btn btn-solid" href="#contact">Discuss a Partnership →</a>
+    </div>
+  </div>
+  <div style="height:88px;"></div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="#top" style="display:flex;align-items:center;gap:10px;margin-bottom:14px;"><img src="images/logo-light.png" alt="Wangu's" style="height:56px;width:auto;"></a>
+      <p style="max-width:280px;font-size:14px;">We transform locally sourced crops into premium frozen and dried products for industries worldwide.</p>
+    <div class="social">
+      <a href="https://www.facebook.com/share/1CRenBX74N/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.4A4.6 4.6 0 1 0 12 16.6 4.6 4.6 0 0 0 12 7.4zm0 7.6a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm5.9-7.8a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM21.9 8c-.1-1.5-.4-2.8-1.5-3.9S17.9 2.6 16.4 2.5c-1.6-.1-6.2-.1-7.8 0C7.1 2.6 5.8 2.9 4.7 4S3.1 6.5 3 8c-.1 1.6-.1 6.2 0 7.8.1 1.5.4 2.8 1.5 3.9s2.4 1.4 3.9 1.5c1.6.1 6.2.1 7.8 0 1.5-.1 2.8-.4 3.9-1.5s1.4-2.4 1.5-3.9c.1-1.6.1-6.2 0-7.8zm-2 9.5a3.2 3.2 0 0 1-1.8 1.8c-1.2.5-4.1.4-5.4.4s-4.200.1-5.400-.4a3.200 3.200 0 0 1-1.800-1.800c-.5-1.200-.4-4.100-.4-5.400s-.1-4.200.4-5.400a3.200 3.200 0 0 1 1.800-1.800c1.200-.5 4.100-.4 5.400-.4s4.200-.1 5.400.4a3.200 3.200 0 0 1 1.800 1.800c.5 1.200.4 4.100.4 5.400s.1 4.200-.4 5.400z"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.2 2.3h3.3l-7.200 8.300 8.500 11.200h-6.700l-5.200-6.800-6 6.800H1.600l7.700-8.800L1.200 2.300H8l4.700 6.200 5.500-6.200zm-1.200 17.500h1.800L7.100 4.100H5.100L17 19.800z"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.200a2.900 2.900 0 0 0-2-2C19.200 4.700 12 4.700 12 4.700s-7.200 0-9 .5a2.900 2.900 0 0 0-2 2C.5 9 .5 12 .5 12s0 3 .5 4.800a2.900 2.900 0 0 0 2 2c1.800.5 9 .5 9 .5s7.200 0 9-.5a2.900 2.900 0 0 0 2-2c.5-1.800.5-4.800.5-4.800s0-3-.5-4.800zM9.800 15.200V8.800l5.900 3.200-5.900 3.200z"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.500 2h-17A1.500 1.500 0 0 0 2 3.500v17A1.500 1.500 0 0 0 3.500 22h17a1.500 1.500 0 0 0 1.500-1.500v-17A1.500 1.500 0 0 0 20.500 2zM8 19H5v-9h3zM6.500 8.700a1.700 1.700 0 1 1 0-3.500 1.700 1.700 0 0 1 0 3.500zM19 19h-3v-4.400c0-1.100 0-2.400-1.500-2.400s-1.700 1.100-1.700 2.300V19h-3v-9h2.800v1.200c.4-.8 1.400-1.500 2.800-1.500 3 0 3.600 2 3.600 4.600z"/></svg></a>
+    </div>
+    </div>
+    <div>
+      <h5>Quick links</h5>
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#story">About us</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#sustainability">Sustainability</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Categories</h5>
+      <ul>
+        <li><a href="#products">Dehydrated</a></li>
+        <li><a href="#products">Frozen products</a></li>
+        <li><a href="#retail">Retail</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li>+1 240 460 3002</li>
+        <li>info@wangufarms.com</li>
+        <li>Freetown, Sierra Leone</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>Copyright © 2026 Wangu Farms</span>
+    <span>Sample redesign — corrected copy applied per developer correction sheet</span>
+  </div>
+</footer>
+
+</body>
+</html>
